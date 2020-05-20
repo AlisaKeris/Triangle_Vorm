@@ -11,11 +11,13 @@ namespace Triangle
             public double a; // первая сторона
             public double b; // вторая сторона
             public double c; // третья сторона
-            public Triangle(double A, double B, double C)
+            public double h; // высота
+            public Triangle(double A, double B, double C, double H) // Конструктор 
             {
                 a = A;
-                b = B;
+                b = B;  // Создаем с заданными длинами сторон согласно заданию 
                 c = C;
+                h = H;
             }
             public string outputA() // выводим сторону а, данный метод возвращает строковое значение
             {
@@ -40,8 +42,14 @@ namespace Triangle
                 double s = 0;
                 double p = 0;
                 p = (a + b + c) / 2;
-                s = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
-                return s;
+                h = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
+                return h;
+            }
+            public double Area() // Вычисление площади 
+            {
+                double S = 0;
+                S = (a * h) / 2; // Формула 
+                return S; // Выводим
             }
             public double GetSetA // свойство позволяющее установить либо изменить значение стороны а
             {
@@ -64,7 +72,14 @@ namespace Triangle
                 set
                 { c = value; }
             }
-            public bool ExistTriangle // свойство позволяющее установить, существует ои треугольник с задаными сторонами
+            public double GetSetH // Свойство для изменения сторонуы/высоты
+            {
+                get
+                { return h; }
+                set
+                { h = value; }
+            }
+            public bool ExistTriangle // свойство позволяющее установить, существует ли треугольник с задаными сторонами
             {
                 get
                 {
