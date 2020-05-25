@@ -12,12 +12,22 @@ namespace Triangle
             public double b; // вторая сторона
             public double c; // третья сторона
             public double h; // высота
-            public Triangle(double A, double B, double C, double H) // Конструктор 
+            public double ha; 
+        public Triangle(double A, double B, double C, double H) // Конструктор 
             {
                 a = A;
                 b = B;  // Создаем с заданными длинами сторон согласно заданию 
                 c = C;
                 h = H;
+            }
+            public Triangle() //трекугольник без указания величин
+            {
+            
+            }
+            public Triangle(double A, double HA)
+            {
+                a = A; //основание
+                ha = HA; //высота к основанию
             }
             public string outputA() // выводим сторону а, данный метод возвращает строковое значение
             {
@@ -44,6 +54,11 @@ namespace Triangle
                 p = (a + b + c) / 2;
                 h = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
                 return h;
+            }
+            public double SurfaceAHA()
+            {
+            double s = (1 / 2) * a * ha;
+                return s;
             }
             public double Area() // Вычисление площади 
             {
