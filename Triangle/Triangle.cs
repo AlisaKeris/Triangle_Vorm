@@ -98,9 +98,9 @@ namespace Triangle
             {
                 get
                 {
-                    if ((a > b + c) && (b > a + c) && (c > a + b)) //сумма 2 сторон должна быть больше третьей
-                        return false;
-                    else return true;
+                    if ((a < b + c) && (b < a + c) && (c < a + b)) //сумма 2 сторон должна быть больше третьей
+                        return true;
+                    else return false;
                 }
             }
         }
