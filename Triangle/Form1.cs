@@ -21,8 +21,8 @@ namespace Triangle
         {
             double a, b, c;
             a = Convert.ToDouble(txtA.Text);
-            b= Convert.ToDouble(txtB.Text);
-            c= Convert.ToDouble(txtC.Text);
+            b = Convert.ToDouble(txtB.Text);
+            c = Convert.ToDouble(txtC.Text);
             Triangle triangle = new Triangle(a, b, c);
             listView1.Items.Add("Сторона а");
             listView1.Items.Add("Сторона b"); 

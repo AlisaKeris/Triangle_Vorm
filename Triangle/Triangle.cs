@@ -22,7 +22,11 @@ namespace Triangle
             }
             public Triangle() //трекугольник без указания величин
             {
-            
+                a = 0;
+                b = 0;
+                c = 0;
+                h = 0;
+
             }
             public Triangle(double A, double HA)
             {
@@ -41,17 +45,32 @@ namespace Triangle
             {
                 return Convert.ToString(c);
             }
-            public double Perimeter() // сумма всех сторон типо double
+            public string outputH()
+            {
+                return Convert.ToString(h);
+            }
+            public double Perimeter() //периметр
             {
                 double p = 0;
                 p = a + b + c; // вычисление
                 return p; // возврат
             }
-            public double Surface() // аналогично периметру
+            public double SemPerimeter() //полупериметр
             {
-                double s = 0;
                 double p = 0;
                 p = (a + b + c) / 2;
+                return p;
+            }
+            public double Height()
+            {
+                double p = SemPerimeter();
+                double h = 2 * Math.Sqrt(p * (p - a) * (p - b) * (p - c)) / a;
+                return h;
+            }
+            public double Surface() // аналогично периметру
+            {
+                double p = 0;
+                p = SemPerimeter();
                 h = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
                 return h;
             }
@@ -87,7 +106,7 @@ namespace Triangle
                 set
                 { c = value; }
             }
-            public double GetSetH // Свойство для изменения сторонуы/высоты
+            public double GetSetH // Свойство для изменения стороны/высоты
             {
                 get
                 { return h; }
