@@ -38,9 +38,10 @@ namespace Triangle
             else listView1.Items[5].SubItems.Add("Не существует");
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
-
+            Form2 form = new Form2();
+            form.Show();
         }
     }
 }
