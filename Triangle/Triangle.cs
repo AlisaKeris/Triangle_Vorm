@@ -122,5 +122,18 @@ namespace Triangle
                     else return false;
                 }
             }
+        public string Typeoftriangle()
+        {
+            string im = "";
+            if ((a == b) || (b == c) || (a == c)) //равнобедренный
+            {
+                im = @C:\Users\alisa\Desktop\Triangle1\Triangle1\triangle3.jpg;
+            }
+            if ((a == b) && (b == c) && (c == a)) // равносторонний
+            {
+                im = @C:\Users\alisa\Desktop\Triangle1\Triangle1\triangle.ico;
+            }
+            return im;
         }
+    }
     }
