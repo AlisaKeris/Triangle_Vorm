@@ -15,6 +15,9 @@ namespace Triangle
         public Form1()
         {
             InitializeComponent();
+            txtA.Text = "A";
+            txtB.Text = "B";
+            txtC.Text = "C";
         }
 
         private void button1_Click(object sender, EventArgs e)
