@@ -19,32 +19,38 @@ namespace Triangle
 
         private void button1_Click(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
-            double a, b, c;
-            a = Convert.ToDouble(txtA.Text);
-            b = Convert.ToDouble(txtB.Text);
-            c = Convert.ToDouble(txtC.Text);
-            Triangle triangle = new Triangle(a, b, c, Triangle.Height(a, b, c));
-            listView1.Items.Add("Сторона а");
-            listView1.Items.Add("Сторона b"); 
-            listView1.Items.Add("Сторона c");
-            listView1.Items.Add("Периметр");
-            listView1.Items.Add("Площадь");
-            listView1.Items.Add("Существует?");
-            listView1.Items[0].SubItems.Add(triangle.outputA());
-            listView1.Items[1].SubItems.Add(triangle.outputB());
-            listView1.Items[2].SubItems.Add(triangle.outputC());
-            listView1.Items[3].SubItems.Add(Convert.ToString(triangle.Perimeter()));
-            listView1.Items[4].SubItems.Add(Convert.ToString(triangle.Surface()));
-            if (triangle.ExistTriangle) { listView1.Items[5].SubItems.Add("Существует"); }
-            else listView1.Items[5].SubItems.Add("Не существует");
-            pictureBox1.Image = triangle.TypeOfTriangle();
+            if (txtA.Text == "A" && txtB.Text == "B" && txtC.Text == "C")
+            {
+                MessageBox.Show("Стороны не заданы", " ");
+            }
+            else
+            {
+                double a, b, c;
+                a = Convert.ToDouble(txtA.Text);
+                b = Convert.ToDouble(txtB.Text);
+                c = Convert.ToDouble(txtC.Text);
+                Triangle triangle = new Triangle(a, b, c, Triangle.Height(a, b, c));
+                listView1.Items.Add("Сторона а");
+                listView1.Items.Add("Сторона b");
+                listView1.Items.Add("Сторона c");
+                listView1.Items.Add("Периметр");
+                listView1.Items.Add("Площадь");
+                listView1.Items.Add("Существует?");
+                listView1.Items[0].SubItems.Add(triangle.outputA());
+                listView1.Items[1].SubItems.Add(triangle.outputB());
+                listView1.Items[2].SubItems.Add(triangle.outputC());
+                listView1.Items[3].SubItems.Add(Convert.ToString(triangle.Perimeter()));
+                listView1.Items[4].SubItems.Add(Convert.ToString(triangle.Surface()));
+                if (triangle.ExistTriangle) { listView1.Items[5].SubItems.Add("Существует"); }
+                else listView1.Items[5].SubItems.Add("Не существует");
+                pictureBox1.Image = triangle.TypeOfTriangle();
+            }
         }
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
-            Form2 form = new Form2();
-            form.Show();
+            Form Form2 = new Form();
+            Form2.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
