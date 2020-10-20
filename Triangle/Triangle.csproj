@@ -93,8 +93,5 @@
   <ItemGroup>
     <None Include="triangle3.jpg.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="1200px-Regular_triangle_1.svg.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

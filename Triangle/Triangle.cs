@@ -138,7 +138,7 @@ namespace Triangle
             if ((a == b) && (b == c) && (c == a)) // равносторонний
             {
 
-                return Properties.Resources._1200px_Regular_triangle_1_svg;
+                return Properties.Resources.giphy;
             }
             else if ((a == b) || (b == c) || (c == a)) // равнобедренный
             {
