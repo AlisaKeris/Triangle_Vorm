@@ -24,7 +24,7 @@ namespace Triangle
             c = C;
             h = H;
         }
-        public Triangle() //трекугольник без указания величин
+        public Triangle() //треугольник без указания величин
         {
             a = 0;
             b = 0;
@@ -72,22 +72,23 @@ namespace Triangle
             double h = 2 * Math.Sqrt(p * (p - A) * (p - B) * (p - C)) / A;
             return h;
         }
-        public double Height()
-        {
-            double p = SemPerimeter();
-            double h = 2 * Math.Sqrt(p * (p - a) * (p - b) * (p - c)) / a;
-            return h;
-        }
         public double Surface() // аналогично периметру
         {
             double p = 0;
             p = SemPerimeter();
-            h = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
+            double s = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
+            return s;
+        }
+        public double Height() // аналогично периметру
+        {
+            double p = 0;
+            p = SemPerimeter();
+            double h =2* Math.Sqrt(p * (p - a) * (p - b) * (p - c)) /a;
             return h;
         }
         public double SurfaceAHA()
         {
-            double s = (1 / 2) * a * ha;
+            double s = (1 / 2) * a * h;
             return s;
         }
         public double Area() // Вычисление площади 

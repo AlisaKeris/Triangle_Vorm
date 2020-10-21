@@ -24,7 +24,8 @@ namespace Triangle
             txtA = new TextBox();
             txtB = new TextBox();
             txtC = new TextBox();
-            button1.Location = new Point(200, 200);
+            button1.Location = new Point(200, 100);
+            button1.Size = new Size(100,50);
             txtA.Location = new Point(50,100);
             txtB.Location = new Point(50,125);
             txtC.Location = new Point(50,150);
@@ -47,10 +48,12 @@ namespace Triangle
             else
             {
                 PictureBox pictureBox1 = new PictureBox();
-                pictureBox1.Location = new Point(300, 150);
-                ListView listView1 = new ListView();
-                listView1.Location = new Point(200, 20);
-                listView1.Height = 300;
+                pictureBox1.Location = new Point(300, 250);
+
+                ListBox listB = new ListBox();
+                listB.Location = new Point(20, 200);
+                listB.Size = new Size(300, 200);
+                listB.Font = new Font("Georgia", 10);
                 pictureBox1.Size = new Size(200, 200);
                 pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                 pictureBox1.BorderStyle = BorderStyle.Fixed3D;
@@ -59,28 +62,18 @@ namespace Triangle
                 b = Convert.ToDouble(txtB.Text);
                 c = Convert.ToDouble(txtC.Text);
                 Triangle triangle = new Triangle(a, b, c, Triangle.Height(a, b, c));
-                listView1.Items.Add("Сторона а");
-                listView1.Items.Add("Сторона b");
-                listView1.Items.Add("Сторона c");
-                listView1.Items.Add("Периметр");
-                listView1.Items.Add("Площадь");
-                listView1.Items.Add("Существует?");
-                listView1.Items[0].SubItems.Add(triangle.outputA());
-                listView1.Items[1].SubItems.Add(triangle.outputB());
-                listView1.Items[2].SubItems.Add(triangle.outputC());
-                listView1.Items[3].SubItems.Add(Convert.ToString(triangle.Perimeter()));
-                listView1.Items[4].SubItems.Add(Convert.ToString(triangle.Surface()));
-                listView1.Columns[0].Width = 50;
-                listView1.Columns[1].Width = 50;
-                listView1.Columns[2].Width = 50;
-                listView1.Columns[3].Width = 50;
-                listView1.Columns[4].Width = 50;
-                if (triangle.ExistTriangle) { listView1.Items[5].SubItems.Add("Существует"); }
-                else listView1.Items[5].SubItems.Add("Не существует");
+                listB.Items.Add("Сторона а: "+txtA.Text);
+                listB.Items.Add("Сторона b: "+txtB.Text);
+                listB.Items.Add("Сторона c: "+txtC.Text);
+                listB.Items.Add("Высота: " + triangle.Height());
+                listB.Items.Add("Периметр: "+triangle.Perimeter());
+                listB.Items.Add("Площадь: " + triangle.Surface());
+                if (triangle.ExistTriangle) { listB.Items.Add("Существует"); }
+                else { listB.Items.Add("Не существует"); }
                 pictureBox1.Image = triangle.TypeOfTriangle();
 
                 this.Controls.Add(pictureBox1);
-                this.Controls.Add(listView1);
+                this.Controls.Add(listB);
 
             }
         }
