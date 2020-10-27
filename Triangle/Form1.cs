@@ -4,20 +4,35 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Triangle
 {
     public partial class Form1 : Form
     {
+        Graphics gp ;
+        Pen p;
         TextBox txtA, txtB, txtC;
-        Button button1;
+        Button button1, button2;
+        Point p1, p2, p3;
+        Panel panel1;
         public Form1()
         {
             this.Height = 500;
             this.Width = 1000;
+            p = new Pen(Brushes.Black, 2);
+            panel1 = new Panel();
+            panel1.Location = new Point(350,120);
+            gp = panel1.CreateGraphics();
+            button2 = new Button();
+            button2.Text = "Рисовать треугольник";
+            button2.Location = new Point(200, 25);
+            button2.Size = new Size(100, 50);
+            button2.BackColor = Color.Coral;
             button1 = new Button();
             button1.Text = "Запуск";
             button1.BackColor = Color.Coral;
@@ -36,7 +51,19 @@ namespace Triangle
             txtB.Text = "B";
             txtC.Text = "C";
             this.Controls.Add(button1);
+            this.Controls.Add(button2);
+            this.Controls.Add(panel1);
             button1.Click += Button1_Click;
+            button2.Click += Button2_Click;
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            p1 = new Point(5, 0);
+            p2 = new Point(90, 0);
+            p3 = new Point(75, 30);
+            Point[] list = new Point[3] { p1, p2, p3 };
+            gp.DrawPolygon(p, list);
         }
 
         private void Button1_Click(object sender, EventArgs e)
