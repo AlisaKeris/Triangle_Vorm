@@ -24,7 +24,7 @@ namespace Triangle
         public Form1()
         {
             this.Height = 500;
-            this.Width = 1000;
+            this.Width = 700;
             p = new Pen(Brushes.Black, 2);
             panel1 = new Panel();
             panel1.Location = new Point(400,250);
@@ -100,25 +100,24 @@ namespace Triangle
             else
             {
                 PictureBox pictureBox1 = new PictureBox();
-                pictureBox1.Location = new Point(250, 200);
+                pictureBox1.Location = new Point(400, -75);
 
                 ListBox listB = new ListBox();
                 listB.Location = new Point(20, 200);
                 listB.Size = new Size(300, 200);
                 listB.Font = new Font("Georgia", 10);
-                pictureBox1.Size = new Size(100, 100);
+                pictureBox1.Size = new Size(250, 350);
                 pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox1.BorderStyle = BorderStyle.Fixed3D;
                 double a, b, c;
                 a = Convert.ToDouble(txtA.Text);
                 b = Convert.ToDouble(txtB.Text);
                 c = Convert.ToDouble(txtC.Text);
                 Triangle triangle = new Triangle(a, b, c, Triangle.Height(a, b, c));
-                listB.Items.Add("Сторона а: "+txtA.Text);
-                listB.Items.Add("Сторона b: "+txtB.Text);
-                listB.Items.Add("Сторона c: "+txtC.Text);
+                listB.Items.Add("Сторона а: " + txtA.Text);
+                listB.Items.Add("Сторона b: " + txtB.Text);
+                listB.Items.Add("Сторона c: " + txtC.Text);
                 listB.Items.Add("Высота: " + triangle.Height());
-                listB.Items.Add("Периметр: "+triangle.Perimeter());
+                listB.Items.Add("Периметр: " + triangle.Perimeter());
                 listB.Items.Add("Площадь: " + triangle.Surface());
                 if (triangle.ExistTriangle) { listB.Items.Add("Существует"); }
                 else { listB.Items.Add("Не существует"); }
@@ -128,6 +127,7 @@ namespace Triangle
                 this.Controls.Add(listB);
 
             }
+
         }
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
