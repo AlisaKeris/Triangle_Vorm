@@ -20,13 +20,15 @@ namespace Triangle
         Button button1, button2;
         Point p1, p2, p3;
         Panel panel1;
+        Label lbl;
         public Form1()
         {
             this.Height = 500;
             this.Width = 1000;
             p = new Pen(Brushes.Black, 2);
             panel1 = new Panel();
-            panel1.Location = new Point(350,120);
+            panel1.Location = new Point(400,250);
+            panel1.Size = new Size(200, 100);
             gp = panel1.CreateGraphics();
             button2 = new Button();
             button2.Text = "Рисовать треугольник";
@@ -36,6 +38,8 @@ namespace Triangle
             button1 = new Button();
             button1.Text = "Запуск";
             button1.BackColor = Color.Coral;
+            lbl = new Label();
+            lbl.Text = "Стороны:";
             txtA = new TextBox();
             txtB = new TextBox();
             txtC = new TextBox();
@@ -44,6 +48,7 @@ namespace Triangle
             txtA.Location = new Point(50,100);
             txtB.Location = new Point(50,125);
             txtC.Location = new Point(50,150);
+            lbl.Location = new Point(50, 80);
             this.Controls.Add(txtA);
             this.Controls.Add(txtB);
             this.Controls.Add(txtC);
@@ -53,15 +58,35 @@ namespace Triangle
             this.Controls.Add(button1);
             this.Controls.Add(button2);
             this.Controls.Add(panel1);
+            this.Controls.Add(lbl);
             button1.Click += Button1_Click;
             button2.Click += Button2_Click;
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            p1 = new Point(5, 0);
-            p2 = new Point(90, 0);
-            p3 = new Point(75, 30);
+            if ((txtA.Text == txtB.Text) && (txtB.Text == txtC.Text) && (txtC.Text == txtA.Text)) // равносторонний
+            {
+                panel1.Refresh();
+                p1 = new Point(40, 90);
+                p2 = new Point(150, 90);
+                p3 = new Point(90, 20);
+            }
+            else if ((txtA.Text == txtB.Text) || (txtB.Text == txtC.Text) || (txtC.Text == txtA.Text)) // равнобедренный
+            {
+                
+                    panel1.Refresh();
+                    p1 = new Point(5, 80);
+                    p2 = new Point(150, 80);
+                    p3 = new Point(75, 30);
+            }
+            else
+            {
+                panel1.Refresh();
+                p1 = new Point(25, 25);
+                p2 = new Point(170, 45);
+                p3 = new Point(45, 90);
+            }
             Point[] list = new Point[3] { p1, p2, p3 };
             gp.DrawPolygon(p, list);
         }
@@ -75,13 +100,13 @@ namespace Triangle
             else
             {
                 PictureBox pictureBox1 = new PictureBox();
-                pictureBox1.Location = new Point(300, 250);
+                pictureBox1.Location = new Point(250, 200);
 
                 ListBox listB = new ListBox();
                 listB.Location = new Point(20, 200);
                 listB.Size = new Size(300, 200);
                 listB.Font = new Font("Georgia", 10);
-                pictureBox1.Size = new Size(200, 200);
+                pictureBox1.Size = new Size(100, 100);
                 pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                 pictureBox1.BorderStyle = BorderStyle.Fixed3D;
                 double a, b, c;

@@ -136,19 +136,9 @@ namespace Triangle
         }
         public System.Drawing.Bitmap TypeOfTriangle()
         {
-            if ((a == b) && (b == c) && (c == a)) // равносторонний
-            {
-
+            
                 return Properties.Resources.giphy;
-            }
-            else if ((a == b) || (b == c) || (c == a)) // равнобедренный
-            {
-                return Properties.Resources.triangle3_jpg;
-            }
-            else
-            {
-                return Properties.Resources.giphy;
-            }
+            
         }
     }
 }
